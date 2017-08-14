@@ -20,7 +20,7 @@ quotes = [
   },
   {
     quote: "Wax On, Wax Off",
-    source: "Par Morita",
+    source: "Pat Morita",
     citation: "The Karate Kid",
     year: 1984
   },

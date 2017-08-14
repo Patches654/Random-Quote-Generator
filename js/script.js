@@ -5,6 +5,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 // Global Variables
 var randomQuote
 var Num
+var colourPicker = [];
 
 // Functions
 
@@ -21,9 +22,21 @@ function getRandomNumber(Num){
   return randomNumber;
 }
 
+// gets 3 numbers for RGB and stores them in an array
+function getRandomColourNumber(){
+  colourPicker.length = 0;
+  for (i = 0; i < 3; i++){
+    var randomNumber = Math.floor((Math.random() * 254) + 1);
+    colourPicker.push(randomNumber);
+    }
+}
+
 // prints the random quote to the index.hmtl
 function printQuote(){
   var quoteObj = getRandomQuote(randomQuote);
+
+  getRandomColourNumber();
+//  document.getElementById(id).style.property = new style
 
   var quoteString = '<p class="quote">' + quoteObj.quote + '</p>';
   quoteString += '<p class="source">' + quoteObj.source;
