@@ -20,14 +20,12 @@ quotes = [
   },
   {
     quote: "Wax On, Wax Off",
-    source: "",
+    source: "Par Morita",
     citation: "The Karate Kid",
     year: 1984
   },
   {
     quote: "What we think, we become",
     source:"Buddah",
-    citation: "",
-    year: 0
   }
 ];
