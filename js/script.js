@@ -24,19 +24,30 @@ function getRandomNumber(Num){
 
 // gets 3 numbers for RGB and stores them in an array
 function getRandomColourNumber(){
+  // clear the array
   colourPicker.length = 0;
+
   for (i = 0; i < 3; i++){
     var randomNumber = Math.floor((Math.random() * 254) + 1);
     colourPicker.push(randomNumber);
     }
 }
 
+// change the backgound colour
+function backgroundColour(){
+  getRandomColourNumber();
+  var pickedColour = colourPicker;
+  var myElement = document.querySelector("body");
+  myElement.style.backgroundColor = "rgb(" + colourPicker + ")";
+  return;
+}
+
 // prints the random quote to the index.hmtl
 function printQuote(){
   var quoteObj = getRandomQuote(randomQuote);
 
-  getRandomColourNumber();
-//  document.getElementById(id).style.property = new style
+// change the background colour
+backgroundColour();
 
   var quoteString = '<p class="quote">' + quoteObj.quote + '</p>';
   quoteString += '<p class="source">' + quoteObj.source;
@@ -47,7 +58,6 @@ function printQuote(){
   if (quoteObj.year !== undefined) {
   quoteString +=  '<span class="year">' + quoteObj.year + '</span></p>'
 }
-
 document.getElementById("quote-box").innerHTML = quoteString;
   return;
 }
