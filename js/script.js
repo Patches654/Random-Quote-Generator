@@ -6,6 +6,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 var randomQuote
 var Num
 var colourPicker = [];
+var autoTimer
 
 // Functions
 
@@ -59,3 +60,6 @@ function printQuote(){
 
   return;
 }
+
+// automatically runs random quote every 30seconds...
+autoTimer = setInterval(printQuote, 30000);
