@@ -19,16 +19,20 @@ theArray=[];
   var randomNumber = getRandomNumber(Num);
   theArray.push(randomNumber);
 }
-
 // iterate throught the array and look for duplicates
 console.log(theArray);
-for (x = 0; x < 5; x++){
-  for (i = 1; i < 4; i++){
+for (x = 0; x < theArray.length; x++){
+  for (i = 1; i < theArray.length - 1; i++){
       if (theArray[0] === theArray[i]){
         console.log("found Duplicate " + theArray[i]);
         theArray.splice(i,1);
-        console.log("removed Duplicate " + theArray)
+        var randomNumber = getRandomNumber(Num);
+        theArray.push(randomNumber);
+        console.log("Duplicate removed, new array is " + theArray)
       }
+
+      // If no duplicates found TODO
+
     }
      var popped = theArray.pop(5);
      theArray.unshift(popped);
