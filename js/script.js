@@ -7,20 +7,40 @@ var randomQuote
 var Num
 var colourPicker = [];
 var autoTimer
+var theArray = [];
 
 // Functions
 
 // returns a random quote from the quotes array
 function getRandomQuote(randomQuote){
+theArray=[];
+    // Fill the Array with 5 random numbers
+  for (y=0; y < 5; y++){
   var randomNumber = getRandomNumber(Num);
-  var theQuote = quotes[randomNumber];
-  return theQuote;
+  theArray.push(randomNumber);
+}
+
+// iterate throught the array and look for duplicates
+console.log(theArray);
+for (x = 0; x < 5; x++){
+  for (i = 1; i < 4; i++){
+      if (theArray[0] === theArray[i]){
+        console.log("found Duplicate " + theArray[i]);
+        theArray.splice(i,1);
+        console.log("removed Duplicate " + theArray)
+      }
+    }
+     var popped = theArray.pop(5);
+     theArray.unshift(popped);
+    }
+    var theQuote = quotes[randomNumber];
+    return theQuote;
 }
 
 // returns a random number
 function getRandomNumber(Num){
-  var randomNumber = Math.floor((Math.random() * 4) + 1);
-  return randomNumber;
+  var RNDNumber = Math.floor((Math.random() * 4) + 1);
+  return RNDNumber;
 }
 
 // gets 3 numbers for RGB and stores them in an array
@@ -43,7 +63,10 @@ function backgroundColour(){
 
 // prints the random quote to the index.hmtl
 function printQuote(){
+
   var quoteObj = getRandomQuote(randomQuote);
+
+  console.log(quoteObj);
 
   var quoteString = '<p class="quote">' + quoteObj.quote + '</p>';
   quoteString += '<p class="source">' + quoteObj.source;
