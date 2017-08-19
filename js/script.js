@@ -13,39 +13,27 @@ var theArray = [];
 
 // returns a random quote from the quotes array
 function getRandomQuote(randomQuote){
-theArray=[];
-    // Fill the Array with 5 random numbers
-  for (y=0; y < 5; y++){
-  var randomNumber = getRandomNumber(Num);
-  theArray.push(randomNumber);
-}
-// iterate throught the array and look for duplicates
-console.log(theArray);
-for (x = 0; x < theArray.length; x++){
-  for (i = 1; i < theArray.length - 1; i++){
-      if (theArray[0] === theArray[i]){
-        console.log("found Duplicate " + theArray[i]);
-        theArray.splice(i,1);
-        var randomNumber = getRandomNumber(Num);
-        theArray.push(randomNumber);
-        console.log("Duplicate removed, new array is " + theArray)
-      }
-
-      // If no duplicates found TODO
-
-    }
-     var popped = theArray.pop(5);
-     theArray.unshift(popped);
-    }
-    var theQuote = quotes[randomNumber];
+  if (theArray.length === 0){
+    getRandomArray(0,4);
+  }
+    console.log("The new array is " + theArray);
+    theNumber = theArray.pop()
+    var theQuote = quotes[theNumber];
     return theQuote;
-}
+  }
 
 // returns a random number
-function getRandomNumber(Num){
-  var RNDNumber = Math.floor((Math.random() * 4) + 1);
-  return RNDNumber;
+function getRandomArray(min,max){
+    theArray = [];
+    while(max>= min) theArray.push(max--)
+    theArray.sort(function(){return .5- Math.random()});
+    return;
 }
+/*
+function getRandomNumber(Num){
+  var RNDNumber = (Math.floor((Math.random() * 4) + 1));
+  return RNDNumber;
+}*/
 
 // gets 3 numbers for RGB and stores them in an array
 function getRandomColourNumber(){
@@ -57,7 +45,7 @@ function getRandomColourNumber(){
 return;
 }
 
-// change the backgound colour
+// changes the backgound colour
 function backgroundColour(){
   getRandomColourNumber();
   var myElement = document.querySelector("body");
@@ -65,7 +53,7 @@ function backgroundColour(){
   return;
 }
 
-// prints the random quote to the index.hmtl
+// prints the random quote to the index.html
 function printQuote(){
 
   var quoteObj = getRandomQuote(randomQuote);
