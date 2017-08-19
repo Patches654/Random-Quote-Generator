@@ -5,8 +5,9 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 // Global Variables
 var randomQuote
 var Num
-var colourPicker = [];
 var autoTimer
+// Arrays
+var colourPicker = [];
 var theArray = [];
 
 // Functions
@@ -29,11 +30,6 @@ function getRandomArray(min,max){
     theArray.sort(function(){return .5- Math.random()});
     return;
 }
-/*
-function getRandomNumber(Num){
-  var RNDNumber = (Math.floor((Math.random() * 4) + 1));
-  return RNDNumber;
-}*/
 
 // gets 3 numbers for RGB and stores them in an array
 function getRandomColourNumber(){
